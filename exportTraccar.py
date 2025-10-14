@@ -8,6 +8,6 @@ import geojson, sys, excelHelper
 cheminExcel = "report.xlsx" #sys.argv[1]
 
 excelHelper = excelHelper.ExcelHelper(cheminExcel)
-excelHelper.fermeture()
+excelHelper._fermeture()
 
 
