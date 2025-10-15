@@ -39,9 +39,9 @@ class ExcelHelper:
             self._workbook.close()
 
     def extractionPointFeuillet(self)->list:
-        _ligne = DEBUTLIGNE
         for feuillet in self._listeFeuillets:
-            print("Traitement du feuillet {}".format(self._listeFeuillets[0]))
+            _ligne = DEBUTLIGNE
+            print("Traitement du feuillet {}".format(feuillet.title()))
             feuillet = self._workbook[feuillet]
             data = feuillet.cell(_ligne, COLDATE).value
             while data != None:
@@ -51,7 +51,7 @@ class ExcelHelper:
                 _ligne += 1
                 data = feuillet.cell(_ligne, COLDATE).value
             #print(self._listePoints)
-            self._fermeture()
+        self._fermeture()
         return self._listePoints
 
     def _fermeture(self):
