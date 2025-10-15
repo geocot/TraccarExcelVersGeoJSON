@@ -33,13 +33,12 @@ class ExcelHelper:
             self._workbook = openpyxl.load_workbook(self.path)
             self._listeFeuillets = self._workbook.sheetnames  # Recherche des feuillets
             print("Les feuillets du fichier Excel: ", self._listeFeuillets)
-            self._lectureFeuillet()
         except Exception as e:
-            print(f"Problèmes : {e}")
+            print(f"Problèmes {__name__}: {e}")
         finally:
             self._workbook.close()
 
-    def _lectureFeuillet(self):
+    def extractionPointFeuillet(self)->list:
         _ligne = DEBUTLIGNE
         for feuillet in self._listeFeuillets:
             print("Traitement du feuillet {}".format(self._listeFeuillets[0]))
@@ -48,10 +47,12 @@ class ExcelHelper:
             while data != None:
                 print(f"Traitement de la ligne {_ligne}")
                 #Création d'un point et ajout dans la liste
-                self._listePoints.append(pointRoute.Point(feuillet.cell(_ligne, COLALTITUDE).value, feuillet.cell(_ligne, COLLONGITUDE).value, feuillet.cell(_ligne, COLLATITUDE).value, feuillet.cell(_ligne, COLDATE).value))
+                self._listePoints.append(pointRoute.Point(feuillet.cell(_ligne, COLLATITUDE).value, feuillet.cell(_ligne, COLLONGITUDE).value, feuillet.cell(_ligne, COLALTITUDE).value, feuillet.cell(_ligne, COLDATE).value,  feuillet.title))
                 _ligne += 1
                 data = feuillet.cell(_ligne, COLDATE).value
-            print(self._listePoints)
+            #print(self._listePoints)
+            self._fermeture()
+        return self._listePoints
 
     def _fermeture(self):
         print("Fermeture du fichier Excel")

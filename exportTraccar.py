@@ -1,13 +1,10 @@
-#Vérification si le module existe.
-try:
-    __import__("geojson")
-except ModuleNotFoundError:
-    print(f"Le module 'geojson' n'existe pas, veuillez l'installer")
 
-import geojson, sys, excelHelper
+import sys, excelHelper, geoJSONHelper
 cheminExcel = "report.xlsx" #sys.argv[1]
 
-excelHelper = excelHelper.ExcelHelper(cheminExcel)
-excelHelper._fermeture()
+eh = excelHelper.ExcelHelper(cheminExcel)
+geoJSONHelper = geoJSONHelper.GeoJSONHelper(eh.extractionPointFeuillet())
+geoJSONHelper.creationFichierGeoJSON("c:/temp/positionsExcel.geojson")
+
 
 
