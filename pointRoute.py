@@ -21,3 +21,6 @@ class Point:
     @property
     def temps(self):
         return self._date
+
+    def __str__(self):
+        return "({}, {}, {}, {})".format( self._date,self.latitude, self.longitude, self.altitude)

@@ -4,6 +4,12 @@
 #Colonne D:Longitude
 #Colonne E:Altitude
 #Les données commence à la ligne 9
+import pointRoute
+DEBUTLIGNE = 9
+COLLATITUDE=3
+COLLONGITUDE=4
+COLALTITUDE=5
+COLDATE=2
 
 #Vérification si le module existe.
 try:
@@ -17,8 +23,9 @@ class ExcelHelper:
         self.path = cheminAcces
         self._workbook = None
         self._listeFeuillets = None
-        self._ouverture()
         self._listePoints = []
+
+        self._ouverture()
 
     def _ouverture(self):
         print("Ouverture du fichier Excel")
@@ -33,16 +40,18 @@ class ExcelHelper:
             self._workbook.close()
 
     def _lectureFeuillet(self):
-        _ligne = 9
-        _colonne = 2
-        nomFeuillet = self._listeFeuillets[0]
-        print("Traitement du feuillet {}".format(self._listeFeuillets[0]))
-        feuillet = self._workbook[nomFeuillet]
-        data = feuillet.cell(_ligne, _colonne).value
-        while data:
-            print(f"Traitement de la ligne {_ligne}")
-            
-            _ligne += 1
+        _ligne = DEBUTLIGNE
+        for feuillet in self._listeFeuillets:
+            print("Traitement du feuillet {}".format(self._listeFeuillets[0]))
+            feuillet = self._workbook[feuillet]
+            data = feuillet.cell(_ligne, COLDATE).value
+            while data != None:
+                print(f"Traitement de la ligne {_ligne}")
+                #Création d'un point et ajout dans la liste
+                self._listePoints.append(pointRoute.Point(feuillet.cell(_ligne, COLALTITUDE).value, feuillet.cell(_ligne, COLLONGITUDE).value, feuillet.cell(_ligne, COLLATITUDE).value, feuillet.cell(_ligne, COLDATE).value))
+                _ligne += 1
+                data = feuillet.cell(_ligne, COLDATE).value
+            print(self._listePoints)
 
     def _fermeture(self):
         print("Fermeture du fichier Excel")
