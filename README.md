@@ -3,7 +3,7 @@ Permets d'exporter le rapport de route de Traccar (xlsx) vers GeoJSON
 
 ## Installation et utilisation
 
- 1. **Installer les modules Python nécessaires.** Ouvrir le logiciel QGIS, ouvrir la console Python et faire les commandes suivantes:
+ 1. **_Installer les modules Python nécessaires._** Ouvrir le logiciel QGIS, ouvrir la console Python et faire les commandes suivantes:
 	 ```
 	import pip
 	pip.main(['install','geojson', 'openpyxl'])
