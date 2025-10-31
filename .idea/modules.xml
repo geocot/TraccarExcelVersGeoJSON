@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TraccarExcelVersGeoJSON.iml" filepath="$PROJECT_DIR$/.idea/TraccarExcelVersGeoJSON.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tracarexcelgeojson.iml" filepath="$PROJECT_DIR$/.idea/tracarexcelgeojson.iml" />
     </modules>
   </component>
 </project>
