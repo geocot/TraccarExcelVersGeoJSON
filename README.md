@@ -15,5 +15,5 @@ Permets d'exporter le rapport de route de Traccar (xlsx) vers GeoJSON
  4. **_Activation du plugin._** Rouvrir le menu "Extensions", choisir "Installer/Gérer les extensions". Sous "Installées" vérifier que le plugin "Traccar Excel vers GeoJSON" est bien coché. 
  5. **_Utilisation._** Un bouton vert avec la lettre "T" en jaune devrait apparaitre dans les menus du logiciel QGIS. Cliquer sur le bouton, choisir le fichier source en format Excel et choisir le fichier de destination qui sera créé en format "GeoJSON".  Cliquez sur le bouton "Appliquer" et le plugin transfert le rapport Excel de Traccar en un fichier GeoJSON utilisable par QGIS. 
 
-:canada:
-Martin Couture :wink: :earth_africa:
+:canada: :senegal:
+Martin Couture :wink: 
